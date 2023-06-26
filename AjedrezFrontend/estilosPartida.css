@@ -1,0 +1,203 @@
+.square {
+    background-color: #EEEED2;
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+  }
+
+  .main-container {
+    display: grid;
+    border-radius: 1%;
+    grid-template-columns: repeat(8, 1fr);
+    max-width: 800px; 
+    width: 90%; 
+    margin: 0 auto; 
+  }
+
+  .dad-container {
+    margin-top: 10% !important;
+    width: 90vw; 
+    max-width: 800px; 
+    margin: 0px auto; 
+  }
+
+/* 
+.dad-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-right: 7%;
+    margin-left: 7%;
+
+}
+
+.square {
+    background-color: #EEEED2;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+
+.main-container {
+    margin-top: 5%;
+    display: grid;
+    border-radius: 5px;
+    grid-template-columns: repeat(8, 1fr);
+    height: 640px;
+    width: 640px;
+    overflow: hidden;
+}
+ */
+.files:nth-of-type(odd) .square:nth-of-type(even) {
+    background-color: #769656;
+}
+
+.files:nth-of-type(even) .square:nth-of-type(odd) {
+    background-color: #769656;
+}
+
+img {
+    width: 100%;
+}
+
+.circulo-grisacio {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    background-color: rgba(92, 92, 92, 0.596);
+    /* Color grisáceo transparente */
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.cuadrado-rojo {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-color: rgba(221, 10, 10, 0.425);
+    /* Color grisáceo transparente */
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.clase-cursor {
+    cursor: pointer;
+}
+
+#EstadoPartida
+{
+    padding-top: 5%;
+}
+
+.clase-cursorModal {
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    will-change: transform, box-shadow;
+}
+
+.clase-cursorModal:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.backGrounSeleccionado {
+    background-color: #f5f586;
+}
+
+.backGrounReyJaque {
+    background-color: rgba(248, 100, 100, 0.795);
+}
+
+.files:nth-of-type(odd) .backGrounSeleccionado:nth-of-type(even) {
+    background-color: #f5f586;
+}
+
+.files:nth-of-type(even) .backGrounSeleccionado:nth-of-type(odd) {
+    background-color: #f5f586;
+}
+
+.colorPosicion {
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.files:nth-of-type(odd) .colorPosicion:nth-of-type(even) {
+    color: black;
+}
+
+.files:nth-of-type(even) .colorPosicion:nth-of-type(odd) {
+    color: black;
+
+}
+
+
+
+/* ----------------------------- */
+
+
+@font-face {
+    font-family: digital;
+    src: url(./Font/digital-7.ttf);
+}
+
+.files:nth-of-type(odd) .backGrounReyJaque:nth-of-type(even) {
+    background-color: rgba(248, 100, 100, 0.795);
+}
+
+.files:nth-of-type(even) .backGrounReyJaque:nth-of-type(odd) {
+    background-color: rgba(248, 100, 100, 0.795);
+
+}
+
+@media screen and (max-width: 995px) {
+    .dad-container {
+    
+        width: 70vw; 
+        max-width: 800px; 
+        margin: 0px auto; 
+    }
+
+    .colorPosicion {
+        color: black;
+        font-weight: bold;
+        font-size: 10px;
+    }
+  }
+
+.nomJug {
+    font-size: 20px;
+    color: white;
+}
+
+
+@media screen and (max-width: 995px) and (min-width: 442px) {
+}
+
+
+@media screen and (max-width: 1603px) and (min-width: 1291px) {
+
+    .dad-container {
+    
+        width: 70vw; 
+        max-width: 800px; 
+        margin: 0px auto; 
+    }
+}
+
+
+
+@media screen and (max-width: 1290px) and (min-width: 995px) {
+    .dad-container
+    {
+        margin-top: 5% !important;
+    }
+}
+
+
+

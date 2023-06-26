@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ajedrez</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+</head>
+
+<!-- NUEVOOOOOO -->
+
+<body class="body">
+
+
+    <nav class="navbar navbar-expand-lg " style="font-size: 25px;">
+        <div class="container-fluid">
+            <a class="navbar-brand" style="width:11%;" href="">
+                <img src="./images/pieces/logo.png" alt="icono" width="100%" height="100%">
+            </a>
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="paginaPrincipal.html"
+                            style="color: white;">Pagina principal</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Guia
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="comojugar.html">Como jugar</a></li>
+                            <li><a class="dropdown-item" href="reglas.html">Reglas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contactanos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <div id="myModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2 class="text-center">Ingrese los nombres </h2>
+            <br>
+            <input type="text" id="usernameInput1" style="background-color: rgb(185, 185, 185);" maxlength="20"
+                placeholder="Usuario 1 ">
+            <br>
+            <input type="text" id="usernameInput2" style="background-color: rgb(185, 185, 185);" maxlength="20"
+                placeholder="Usuario 2 ">
+            <br>
+            <button button class="boton" id="btnEnviarDatos"
+                style="background-color: #7fA650;color: white; border: fixed black; padding: 10px 20px;text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;"
+                onclick="submitUsernames()">Enviar</button>
+            <br>
+            <button button class="boton"
+                style="background-color: #7fA650;color: white; border: fixed black; padding: 10px 20px;text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;"
+                onclick="closeModal()">Cancelar</button>
+        </div>
+    </div>
+
+
+
+
+    <div class="container-fluid">
+        <div class="row flex-xl-nowrap">
+            <div class="col py-3">
+                <!-- TODO EL CONTENIDO VA ACA -->
+
+                <!-- Mensaje de bienvenida -->
+                <h1 style="color: white; text-align: center; margin-top: 5%;">Bienvenido al Ajedrez, Tupiano!</h1>
+                <!-- Columnas menu principal -->
+                <div class="fondoOscuro">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6" style="padding-top: 5%;">
+                                <img src="https://www.chess.com/bundles/web/images/offline-play/standardboard.1d6f9426.png"
+                                    style="width: auto; height: auto; " class="img-fluid" alt="">
+                            </div>
+                            <div class="col-md-6" style="padding-top: 5%; align-items: center; text-align: center;">
+                                <h1 style="color: white;">¿Usted desea?</h1>
+
+                                <!-- Botones -->
+
+                                <button class="btn btn-primary btn-lg btn-block btn-custom" id="btnIniciar"
+                                    style="background-color: #7fA650; border: 2px solid black;" onclick="openModal()">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/6967/6967754.png" class="btn-icon"
+                                        alt="">
+                                    Iniciar partida
+                                </button>
+
+
+                                <br>
+                                <button class="btn btn-primary btn-lg btn-block btn-custom" data-bs-toggle="modal"
+                                    data-bs-target="#modalverPartidasGuardadas"
+                                    style="background-color:  #7fA650;  border: 2px solid black;" id="CargarPartida">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/10732/10732275.png"
+                                        class="btn-icon" alt="">
+                                    Cargar partida
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" id="modalverPartidasGuardadas" aria-labelledby="exampleModalLabels" aria-hidden="true">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="card text-center" style="background-color: #262421; color: white;">
+                    <div class="card-header">
+                        <b>Partidas Guardadas</b>
+                    </div>
+                    <div class="card-body">
+                        <div class="overflow-auto" id="cardContainer">
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        async function submitUsernames() {
+            var username1 = document.getElementById("usernameInput1").value;
+            var username2 = document.getElementById("usernameInput2").value;
+
+
+
+
+            if (username1 && username2) {
+                alert("Usuario 1: " + username1 + "\nUsuario 2: " + username2);
+                await enviarPeticion(username1, username2);
+                closeModal();
+            } else {
+                alert("Por favor, ingrese ambos nombres de usuario.");
+            }
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+            document.getElementById("usernameInput1").value = "";
+            document.getElementById("usernameInput2").value = "";
+        }
+    </script>
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
